@@ -1,11 +1,11 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const { Circle, Square, Triangle } = require("./lib/shapes");
+const { Circle, Square, Triangle } = require("./lib/generateSVG");
 
 const questions = [
     {
     type: "list",
-    message: "What shape wouod you like to choose?",
+    message: "What shape would you like to choose?",
     name: "shape",
     choices: ["Circle", "Square", "Triangle"],
     },
@@ -32,3 +32,12 @@ fs.writeFile(fileName, data, function (err) {
 });
 }
 
+function init() {
+    inquirer.prompt(questions)
+    .then((response) => {
+        const svg = generateSVG(response);
+        writeToFile("./example/logo.svg", svg); 
+    });
+}
+
+init();
