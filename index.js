@@ -26,21 +26,22 @@ const questions = [
     }
 ];
 
-function writeFile(fileName, data) {
-    console.log('Writing data to file'); 
-fs.writeFile(fileName, data, function (err) {
-    if (err) {
-        return console.log(err);
-    }
-    console.log('Congratulations! You have created an SVG Logo!'); 
-});
-}
+// function writeFile(fileName, data) {
+//     console.log('Writing data to file'); 
+// fs.writeFile(fileName, data, function (err) {
+//     if (err) {
+//         return console.log(err);
+//     }
+//     console.log('Congratulations! You have created an SVG Logo!'); 
+// });
+// }
 
 function init() {
     inquirer.prompt(questions)
     .then((response) => {
+        console.log(response)
         const svg = generateSVG(response);
-        writeToFile("./example/logo.svg", svg); 
+        // writeToFile("./example/logo.svg", svg); 
     });
 }
 
