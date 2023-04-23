@@ -15,10 +15,14 @@ const questions = [
     message: "TEXT: Enter up to (3) Characters:",
     },
     {
-    type: "list",
-    message: "What shape wouod you like to choose?",
-    name: "color",
-    choices: ["Red", "Green", "Blue", "Yellow", "Orange", "Purple", "Pink"],
+    type: "input",
+    message: "What color text would you like to choose (Please enter color name or hexidecimal number?)",
+    name: "textColor",
+    },
+    {
+    type: "input",
+    message: "What color shape background would you like to choose?(Please enter color name or hexidecimal number)",
+    name: "shapeColor",
     }
 ];
 
