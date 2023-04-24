@@ -165,3 +165,16 @@ You are required to submit the following for review:
 
 ---
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+
+
+## Citations:
+https://nodejs.org/api/modules.html#modules_module_exports
+https://nodejs.org/en/docs
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+https://nodejs.org/docs/latest-v16.x/api/fs.html#fsappendfilepath-data-options-callback
+https://nodejs.org/docs/latest-v16.x/api/fs.html#fsreadfilepath-options-callback
+https://nodejs.org/docs/latest-v16.x/api/fs.html#fswritefilefile-data-options-callback
+https://www.tabnine.com/code/javascript/functions/request/Response/setEncoding
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise
+

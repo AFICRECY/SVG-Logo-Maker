@@ -1,6 +1,7 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const { Circle, Square, Triangle } = require("./lib/generateSVG");
+const generateSVG = require("./lib/generateSVG");
+
 
 const questions = [
     {
@@ -13,6 +14,12 @@ const questions = [
     type: "input",
     name: "text",
     message: "TEXT: Enter up to (3) Characters:",
+    validate: function(letters) {
+        if (letters.length > 3) {
+            return "Oops! You entered the wrong character length requirement, please enter up to 3 characters";
+        }
+        return true;
+    }
     },
     {
     type: "input",
@@ -41,7 +48,15 @@ function init() {
     .then((response) => {
         console.log(response)
         const svg = generateSVG(response);
-        // writeToFile("./example/logo.svg", svg); 
+        fs.writeToFile("./example/logo.svg", svg, (err) => {
+            if (err) {
+                console.log("Sorry there is an error");
+                console.log(err);
+            }
+            else {
+                console.log("Youv'e successfully generated an SVG logo!")
+            }
+        }); 
     });
 }
 
