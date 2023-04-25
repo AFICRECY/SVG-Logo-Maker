@@ -15,7 +15,7 @@
 
 Watch Functionality Video:
 
-This web application is a SVG Logo Creator which can be accessed through a user’s terminal (command-line). All a user would need to input into the command line (once inside the correct file), they can enter “node index.js” and are prompted with questions which will lead them to a rendered SVG Logo, through the SVG Logo Extension in the example folder, which includes all of the users specifications.
+This web application is a SVG Logo Creator which can be accessed through a user’s terminal (command-line). All a user would need to input into the command line (once inside the correct file), they can enter “node index.js” and are prompted with questions which will lead them to a rendered SVG Logo, through the SVG Logo Extension in the example folder, which includes all of the users specifications. SVG files can be used in a variety of ways, from website logos to printed materials. They can also be animated or interactive, making them a great choice for logos that need to be dynamic or engaging.
 
 
 SVG is a markup language based on XML that enables the creation of vector graphics. SVG files can display these vector graphics at any scale, while bitmap images require larger files for images that are scaled up, as more pixels require more file space. This is advantageous for websites because smaller files load faster in browsers, leading to improved page performance.
@@ -175,10 +175,9 @@ I tested using Jest Framework. In the process of testing my code, I had experien
 
 ### Usage: 
 
+SVG files can display vector graphics at any scale, while bitmap images require larger files for images that are scaled up, as more pixels require more file space. This is advantageous for websites because smaller files load faster in browsers, leading to improved page performance. Furthermore, search engines like Google can index SVG files, which makes it possible to include keyword text within an image, particularly in text-heavy infographics, to enhance page ranking and improve SEO. PNGs and JPEGs, on the other hand, are restricted to metadata and alt text in this regard.
 
-
-
-
+Not only can SVG files be resized multiple times during editing without losing clarity, but it is also relatively easy to create responsive SVG files that look good on any device, even when the viewer zooms in on a web page. The versatility of SVG files makes them an excellent choice for logos and simple infographics.
 
 
 
@@ -194,6 +193,16 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 
 ## Citations:
-
+* Module Exports: https://nodejs.org/api/modules.html#modules_module_exports
+* Node DOCs: https://nodejs.org/en/docs
+* For of/in: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+* AppendFile Node DOCs: https://nodejs.org/docs/latest-v16.x/api/fs.html#fsappendfilepath-data-options-callback
+* ReadFile Node DOCs:https://nodejs.org/docs/latest-v16.x/api/fs.html#fsreadfilepath-options-callback
+* WriteFile Node DOCs: https://nodejs.org/docs/latest-v16.x/api/fs.html#fswritefilefile-data-options-callback
+* Request/Response: https://www.tabnine.com/code/javascript/functions/request/Response/setEncoding
+* Global Objects: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise
+* Basic Shpaes SVG: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes
+* Fill SVG: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes
+* Positions SVG: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions
 
 
