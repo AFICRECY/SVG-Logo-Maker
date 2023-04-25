@@ -1,7 +1,9 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const generateSVG = require("./lib/generateSVG");
-
+// I am using the fs and inquirer packages to read and write files and prompt users for input. 
+// Additionally, I am requiring a custom module generateSVG from the ./lib directory, 
+// which contains the files that manipulate the SVG logos. 
 
 const questions = [
     {
@@ -20,6 +22,10 @@ const questions = [
         }
         return true;
     }
+//When the validation function returns true, it means that the character input length is valid and the prompt will continue to the next question. 
+// If the user inputs a character length of more than 3 characters, it means that the input is invalid and the prompt will not proceed until the user enters valid input. 
+// The string that the function returns is displayed to the user as an error message.
+
     },
     {
     type: "input",
@@ -43,6 +49,7 @@ function writeToFile(fileName, data) {
 });
 }
 
+
 function init() {
     inquirer.prompt(questions)
     .then((response) => {
@@ -51,6 +58,37 @@ function init() {
         console.log(svg)
         const fileName="./example/logo.svg"
         writeToFile(fileName,svg)
+
+// This is an init() function that uses the Inquirer.js library to prompt the user with the set of questions, 
+// and then generates an SVG image based on their responses.The writeToFile() function is called to save
+// the generated SVG image to the logo.svg file in the example directory.
+    });
+}
+
+init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // fs.writeToFile("./example/logo.svg", svg, (err) => {
         //     if (err) {
         //         console.log("Sorry there is an error");
@@ -60,7 +98,3 @@ function init() {
         //         console.log("Youv'e successfully generated an SVG logo!")
         //     }
         // }); 
-    });
-}
-
-init();

@@ -1,172 +1,192 @@
-# 10 Object-oriented Programming: SVG Logo Maker
+# SVG Logo Maker
 
-## Your Task
+## Technology Used:
+| Technology Used         | Resource URL           |
+| ------------- |:-------------:|
+| Git | [https://git-scm.com/](https://git-scm.com/)     |
+| JavaScript  | [https://getbootstrap.com/docs/5.3/getting-started/introduction/](https://developer.mozilla.org/en-US/docs/Web/JavaScript)      |
+| Node.js | [https://nodejs.org/en](https://nodejs.org/en)       |
+| Jest Testing Framework | [https://jestjs.io/](https://jestjs.io/)   |
 
-Your task is to build a Node.js command-line application that takes in user input to generate a logo and save it as an [SVG file](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics). The application prompts the user to select a color and shape, provide text for the logo, and save the generated SVG to a `.svg` file.
 
-Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its functionality and passes all of the tests. You’ll need to submit a link to the video **and** add it to the README of your project.
 
-Refer to the [Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) on the Full-Stack Blog for additional guidance on creating a video.
+## Description:
 
-> **Note**: There is no starter code for this assignment.
-### User Story
+Watch Functionality Video:
 
-```md
-AS a freelance web developer
-I WANT to generate a simple logo for my projects
-SO THAT I don't have to pay a graphic designer
+
+
+
+
+## Table of Contents:
+* Installation (JavaScript, Node.js, NPM Packages, Template Literals, Arrow Functions, Inquirer, Objects, and Functions, Jest Unit Testing)
+* Testing
+* Usage
+* Credits
+* License
+
+
+### Installation:
+
+
+
 ```
-
-## Acceptance Criteria
-
-```md
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for text
-THEN I can enter up to three characters
-WHEN I am prompted for the text color
-THEN I can enter a color keyword (OR a hexadecimal number)
-WHEN I am prompted for a shape
-THEN I am presented with a list of shapes to choose from: circle, triangle, and square
-WHEN I am prompted for the shape's color
-THEN I can enter a color keyword (OR a hexadecimal number)
-WHEN I have entered input for all the prompts
-THEN an SVG file is created named `logo.svg`
-AND the output text "Generated logo.svg" is printed in the command line
-WHEN I open the `logo.svg` file in a browser
-THEN I am shown a 300x200 pixel image that matches the criteria I entered
+const fs = require("fs");
+const inquirer = require("inquirer");
+const generateSVG = require("./lib/generateSVG");
 ```
+(Above: I am using the fs and inquirer packages to read and write files and prompt users for input. Additionally, I am requiring a custom module generateSVG from the ./lib directory, which contains the files that manipulate the SVG logos.)
 
-## Mock-Up
 
-The following image shows a mock-up of the generated SVG given the following input entered by the user: `SVG` for the text, `white` for the text color, `circle` from the list of shapes, and `green` for the shape color. Note that this is just an image of the output SVG and not the SVG file itself:
 
-![Image showing a green circle with white text that reads "SVG.".](./Images/10-oop-homework-demo.png)
-
-## Additional Requirements
-
-This Challenge combines many of the skills covered so far. In addition to the User Story and Acceptance Criteria, we’ve provided some guidelines to help you get started.
-
-Because this Challenge requires a video submission, refer to the [Full-Stack Blog video submission guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for guidance on creating and sharing a video.
-
-Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4) for collecting input from the user. The application will be invoked by using the following command:
-
-```bash
-node index.js
 ```
-
-It is recommended that you start with a directory structure that looks like the following example:
-
-```md
-.  
-├── examples/           // Example svg file(s) created with the app
-├── lib/                // Folder for classes or functions
-    ├── shapes.js       // Exports `Triangle`, `Circle`, and `Square` classes
-    ├── shapes.test.js  // Jest tests for shapes
-    └── more...         // Additional files and tests
-├── .gitignore          // Indicates which folders and files Git should ignore
-├── index.js            // Runs the application using imports from lib/
-├── package.json
-└── README.md           // App description, link to video, setup and usage instructions           
+const questions = [
+   {
+   type: "list",
+   message: "What shape would you like to choose?",
+   name: "shape",
+   choices: ["Circle", "Square", "Triangle"],
+   },
+   {
+   type: "input",
+   name: "text",
+   message: "TEXT: Enter up to (3) Characters:",
+   validate: function(letters) {
+       if (letters.length > 3) {
+           return "Oops! You entered the wrong character length requirement, please enter up to 3 characters";
+       }
+       return true;
+   }
 ```
+(Above: When the validation function returns true, it means that the character input length is valid and the prompt will continue to the next question. If the user inputs a character length of more than 3 characters, it means that the input is invalid and the prompt will not proceed until the user enters valid input. The string that the function returns is displayed to the user as an error message.)
 
-> **Important**: Make sure that you remove `dist` from the `.gitignore` file so that Git will track this folder and include it when you push up to your application's repository.
-The application must include `Triangle`, `Circle`, and `Square` classes, as well as tests for each of these classes using Jest. While not a requirement, it is recommended that you place any common functionality and properties shared by the `Triangle`, `Circle`, and `Square` classes in a parent `Shape` class and use inheritance to reuse the code in the child classes.
 
-Each shape class should be tested for a `render()` method that returns a string for the corresponding SVG file with the given shape color.
-
-The following example test should pass:
-
-```js
-const shape = new Triangle();
-shape.setColor("blue");
-expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" fill="blue" />');
 ```
-
-You may need to add additional files in the `lib` folder for handling user input, writing to a file, etc. Writing tests for these additional files is **optional**.
-
-## Helpful SVG Resources
-
-* [Example SVG](https://static.fullstack-bootcamp.com/fullstack-ground/module-10/circle.svg)
-
-* [Scalable Vector Graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)
-
-* [SVG tutorial](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial)
-
-* [Basic SVG shapes](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes)
-
-* [Text in SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts)
-
-* [SVG VS Code extension](https://marketplace.visualstudio.com/items?itemName=jock.svg)
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-This Challenge is graded based on the following criteria:
-
-### Deliverables: 15%
-
-* At least one sample SVG file generated using the application must be submitted.
-
-* Your GitHub repository containing your application code.
-
-### Walkthrough Video: 32%
-
-* A walkthrough video that demonstrates the functionality of the SVG logo maker and passing tests must be submitted.
-
-* The `README.md` file must include a link to the walkthrough video.
-
-* The walkthrough video must show all tests passing from the command line.
-
-* The walkthrough video must demonstrate how a user would invoke the application from the command line.
-
-* The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
-
-* The walkthrough video must demonstrate a generated SVG file, showing the file being opened in the browser. The image in the browser must reflect the choices made by the user (text, shape, and colors).
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Uses the [Inquirer package](https://www.npmjs.com/package/inquirer/v/8.2.4).
-
-  * Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
-
-  * The application must have `Triangle`, `Square`, and `Circle` classes.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit the following for review:
-
-* A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-* At least one sample SVG file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+function writeToFile(fileName, data) {
+   console.log('Writing data to file');
+   fs.writeFile(fileName, data, function (err) {
+   if (err) {
+       return console.log(err);
+   }
+   console.log('Congratulations! You have created an SVG Logo!');
+});
+}
+```
+(Above: This code defines a function called writeToFile that takes two parameters: fileName and data. If an error occurs during the write operation, the callback function is called with an error object as its argument, and the function will log the error to the console using console.log(err). If the write operation is successful, the callback function is called, and the function will log ('Congratulations! You have created an SVG Logo!').)
 
 
+```
+function init() {
+   inquirer.prompt(questions)
+   .then((response) => {
+       console.log(response)
+       const svg = generateSVG(response);
+       console.log(svg)
+       const fileName="./example/logo.svg"
+       writeToFile(fileName,svg)
+   });
+}
+init();
+```
+(Above: This is an init() function that uses the Inquirer.js library to prompt the user with the set of questions, and then generates an SVG image based on their responses.The writeToFile() function is called to save the generated SVG image to the logo.svg file in the example directory.)
+
+
+```
+class Shapes {
+ constructor(shape, text, textColor, shapeColor) {
+   this.shape = shape;
+   this.text = text;
+   this.textColor = textColor;
+   this.shapeColor = shapeColor;
+ }
+module.exports = Shapes;
+```
+(Above: This code defines a Shapes class that takes four arguments (shape, text, textColor, and shapeColor) in its constructor and assigns them to properties of the same name on the global object instance. The module.exports statement exports the Shapes class, making it available for other modules to import and use.)
+
+
+
+```
+function generateSVG(response) {
+
+
+if (response.shape === "Circle") {
+const circle = new Circle;
+var shapeRender = circle.render(response.shapeColor)
+}
+else if (response.shape === "Square") {
+const square = new Square;
+var shapeRender = square.render(response.shapeColor)
+}
+else if (response.shape === "Triangle") {
+const triangle = new Triangle;
+var shapeRender = triangle.render(response.shapeColor)
+}
+```
+(Above: This function is an if-else statement that checks the user's shape choice. Whatever the choice, a new instance of the shapes class is created using the new operator and assigned to a variable. The render() method of the Circle object is then called with the shapeColor property of the response object as its argument.)
+
+
+
+```
+return `
+<svg width="300" height="250" version="1.1" xmlns="http://www.w3.org/2000/svg">
+${shapeRender}
+<text font-size="2em" x="125" y="130" fill="${response.textColor}">${response.text}</text>
+</svg>`
+}
+```
+(Above: The function returns shapeRender string and a text element. The text element displays the text property of the response object and uses the textColor property as the fill color. The SVG string also includes attributes for the width, height, version, and XML namespace of the SVG element.)
+
+
+
+```
+const Circle = require("./circle");
+describe("Circle", () => {
+
+
+   describe("render", () => {
+   it("should return a string for the corresponding SVG file with the given shape color", () => {
+     //Act
+     const myCircle = new Circle('hey', 'black', 'pink');
+     // Assert
+     expect(myCircle.render('orange')).toBe('<circle cx="150" cy="125" r="80"   fill="orange"/>');
+   });
+ });
+});
+```
+(Above: This imports a module named Circle from a file named circle.js located in the same directory as the current file. A positive test for Circle is created to check that the render function does in fact return the shape dimensions and fill color. There was a positive test for every shape and each file ended in test.js)
+
+
+### Testing 
+## Passing and Failing 
+I tested using Jest Framework. In the process of testing my code, I had experiences where one was working and another test was not.
+![Passing and Failing Test](https://user-images.githubusercontent.com/101257805/234175780-80b6526d-c2a4-439f-9f7b-8c43e1617e1e.png)
+
+##Failing Tests 
+![Failing Tests](https://user-images.githubusercontent.com/101257805/234176422-f7435d8d-4699-4392-a9bc-e5a6da8d5cd8.png)
+
+##Passing Tests 
+![Passing Tests](https://user-images.githubusercontent.com/101257805/234176257-ec1a80cc-481b-49b3-b9b6-51681b746f28.png)
+
+
+### Usage: 
+
+
+
+
+
+
+
+
+### License:
+MIT License
+
+Copyright (c) [2023] [Afi Nkhume-Crecy]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 
 ## Citations:
 https://nodejs.org/api/modules.html#modules_module_exports
