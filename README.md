@@ -14,6 +14,7 @@
 ## Description:
 
 Watch Functionality Video:
+https://drive.google.com/file/d/1XS5WqmptUKkiPQ6OnEuhNA2MEiARM2Qq/view
 
 This web application is a SVG Logo Creator which can be accessed through a user’s terminal (command-line). All a user would need to input into the command line (once inside the correct file), they can enter “node index.js” and are prompted with questions which will lead them to a rendered SVG Logo, through the SVG Logo Extension in the example folder, which includes all of the users specifications. SVG files can be used in a variety of ways, from website logos to printed materials. They can also be animated or interactive, making them a great choice for logos that need to be dynamic or engaging.
 
