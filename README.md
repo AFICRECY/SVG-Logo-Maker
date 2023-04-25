@@ -7,6 +7,7 @@
 | JavaScript  | [https://getbootstrap.com/docs/5.3/getting-started/introduction/](https://developer.mozilla.org/en-US/docs/Web/JavaScript)      |
 | Node.js | [https://nodejs.org/en](https://nodejs.org/en)       |
 | Jest Testing Framework | [https://jestjs.io/](https://jestjs.io/)   |
+| SVG Logo Extension | [https://marketplace.visualstudio.com/items?itemName=jock.svg](https://marketplace.visualstudio.com/items?itemName=jock.svg)    |
 
 
 
@@ -14,8 +15,11 @@
 
 Watch Functionality Video:
 
+This web application is a SVG Logo Creator which can be accessed through a user’s terminal (command-line). All a user would need to input into the command line (once inside the correct file), they can enter “node index.js” and are prompted with questions which will lead them to a rendered SVG Logo, through the SVG Logo Extension in the example folder, which includes all of the users specifications.
 
 
+SVG is a markup language based on XML that enables the creation of vector graphics. SVG files can display these vector graphics at any scale, while bitmap images require larger files for images that are scaled up, as more pixels require more file space. This is advantageous for websites because smaller files load faster in browsers, leading to improved page performance.
+Furthermore, search engines like Google can index SVG files, which makes it possible to include keyword text within an image, particularly in text-heavy infographics, to enhance page ranking and improve SEO. PNGs and JPEGs, on the other hand, are restricted to metadata and alt text in this regard.
 
 
 ## Table of Contents:
@@ -28,6 +32,7 @@ Watch Functionality Video:
 
 ### Installation:
 
+To install this project, a knowledge of JavaScript, Node.js, and NPM Packages were required. I had to first install Node.js to my computer and then install the NPM and Inquirer packages. The Inquirer package provides a set of tools for building command-line interfaces (CLIs). It allowed me to create interactive prompts for users, enabling them to input information and providing responses accordingly to create their README.md file through the command line. Methods used ranged from, Template Literals, Arrow Functions, Inquirer, Objects, and Functions, Variables, If/Else Statements, and the node package.json. Additionally, to allow me to test my code in the terminal, I installed Jest as my testing framework.  The web application is intended for the user to be able to open their integrated terminal, input “node index.js” into the command line, and immediately, through the terminal, be prompted with a list of questions. These questions, when answered, will generate an SVG logo for the user that is available to preview via the SVG Logo Extension in the example folder in the directory. The code below makes this happen. 
 
 
 ```
@@ -156,15 +161,15 @@ describe("Circle", () => {
 (Above: This imports a module named Circle from a file named circle.js located in the same directory as the current file. A positive test for Circle is created to check that the render function does in fact return the shape dimensions and fill color. There was a positive test for every shape and each file ended in test.js)
 
 
-### Testing 
-## Passing and Failing 
-I tested using Jest Framework. In the process of testing my code, I had experiences where one was working and another test was not.
+## Testing 
+### Passing and Failing 
+I tested using Jest Framework. In the process of testing my code, I had experiences where one was working and another test was not. Eventually with trial and error, researching error messagesm and with refactoring my code, I got all of my tests to pass in the end. 
 ![Passing and Failing Test](https://user-images.githubusercontent.com/101257805/234175780-80b6526d-c2a4-439f-9f7b-8c43e1617e1e.png)
 
-##Failing Tests 
+### Failing Tests 
 ![Failing Tests](https://user-images.githubusercontent.com/101257805/234176422-f7435d8d-4699-4392-a9bc-e5a6da8d5cd8.png)
 
-##Passing Tests 
+### Passing Tests 
 ![Passing Tests](https://user-images.githubusercontent.com/101257805/234176257-ec1a80cc-481b-49b3-b9b6-51681b746f28.png)
 
 
@@ -189,12 +194,6 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 
 ## Citations:
-https://nodejs.org/api/modules.html#modules_module_exports
-https://nodejs.org/en/docs
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
-https://nodejs.org/docs/latest-v16.x/api/fs.html#fsappendfilepath-data-options-callback
-https://nodejs.org/docs/latest-v16.x/api/fs.html#fsreadfilepath-options-callback
-https://nodejs.org/docs/latest-v16.x/api/fs.html#fswritefilefile-data-options-callback
-https://www.tabnine.com/code/javascript/functions/request/Response/setEncoding
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise
-https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes
+
+
+
